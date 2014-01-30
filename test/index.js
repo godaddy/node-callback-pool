@@ -51,11 +51,12 @@ describe("callback-pool", function(){
     });
 
     describe("once drained", function(){
-      var args = [];
+      var args;
       beforeEach(function(done){
+        args = [];
         myPool.add(function(){args.push(1);});
         myPool.add(function(){args.push(2);});
-        myPool.drain();
+        myPool.drain(5,6);
         setTimeout(function(){
           args.join('').should.equal('12');
           done();
@@ -68,6 +69,15 @@ describe("callback-pool", function(){
           args.join('').should.equal('123');
           done();
         }, 10);
+      });
+
+      it("maintains the arguments originally given", function(done){
+        myPool.add(function(a,b){args.push(a+b);});
+        myPool.add(function(a,b){args.push(a+b);});
+        setTimeout(function(){
+          args.join().should.equal('1,2,11,11');
+          done();
+        });
       });
     });
   });
