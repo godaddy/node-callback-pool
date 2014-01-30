@@ -1,6 +1,6 @@
 {
   "name": "callback-pool",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Simple utility to queue callbacks in a pool until the drain has been unplugged.",
   "main": "lib",
   "directories": {
