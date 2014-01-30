@@ -1,0 +1,37 @@
+{
+  "name": "callback-pool",
+  "version": "0.0.0",
+  "description": "Simple utility to queue callbacks in a pool until the drain has been unplugged.",
+  "main": "lib",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "jshint": "jshint lib && jshint --config .jshintrc-test test",
+    "cover": "istanbul cover ./node_modules/.bin/_mocha -- -r should -R spec 'test/**/*.js'",
+    "report": "istanbul report cobertura",
+    "test": "npm run-script jshint && npm run-script cover && npm run-script report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/godaddy/node-callback-pool.git"
+  },
+  "keywords": [
+    "drain",
+    "callbacks",
+    "queue",
+    "pool",
+    "async"
+  ],
+  "author": "GoDaddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/godaddy/node-callback-pool/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "istanbul": "~0.2.4",
+    "jshint": "~2.4.3",
+    "should": "~3.1.2"
+  }
+}
